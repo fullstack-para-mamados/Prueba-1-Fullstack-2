@@ -1,34 +1,47 @@
-
-
-const formulario = document.querySelector("form");
+const formulario = document.getElementById("form-contacto");
 const nombre = document.getElementById("nombre");
-const errorNombre = document.getElementById("error-nombre");
-const email = document.getElementById("email");
-const errorCorreo = document.getElementById("error-correo");
+const correo = document.getElementById("email");
 const mensaje = document.getElementById("mensaje");
+const errorNombre = document.getElementById("error-nombre");
+const errorCorreo = document.getElementById("error-correo");
 const errorMensaje = document.getElementById("error-mensaje");
+const mensajeFormulario = document.getElementById("mensaje-formulario");
 
-formulario.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return patron.test(valor.trim());
+function establecerError(input, elementoError, texto) {
+  elementoError.textContent = texto;
+  if (texto) {
+    input.setAttribute("aria-invalid", "true");
+  } else {
+    input.removeAttribute("aria-invalid");
+  }
+}
 
-    const correo = email.value.trim();
-    const dominiosPermitidos = [ "@hotmail.com", "@gmail.com"];
+function validarCorreo() {
+  const valor = correo.value.trim().toLowerCase();
+  const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
 
-    if (!correo.includes("@")) {
-        errorCorreo.textContent = "Ingrese un correo válido";
-    if (!correo === "") {
-        errorCorreo.textContent = "Ingrese un correo válido";
-    }
-    if (!dominioPermitido) {
-    establecerError(correo, errorCorreo, "Solo se permiten correos @hotmail.com o @gmail.com.");
+  if (valor === "") {
+    establecerError(correo, errorCorreo, "El correo es obligatorio.");
     return false;
-    }else {
-        errorCorreo.textContent = "";
-        alert("Formulario enviado correctamente");
-    }
-}});
+  }
+
+  const formato = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor);
+  const dominioPermitido = dominiosPermitidos.some((dominio) => valor.endsWith(dominio));
+
+  if (!formato) {
+    establecerError(correo, errorCorreo, "Ingresa un correo electrónico válido.");
+    return false;
+  }
+
+  if (!dominioPermitido) {
+    establecerError(correo, errorCorreo, "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
+    return false;
+  }
+
+  establecerError(correo, errorCorreo, "");
+  return true;
+}
+
 
 function validarNombre() {
   const valor = nombre.value.trim();
@@ -49,6 +62,26 @@ function validarMensaje() {
   return true;
 }
 
+function validarMensaje() {
+  const valor = mensaje.value.trim();
+  if (valor === "") {
+    establecerError(mensaje, errorMensaje, "El mensaje es obligatorio.");
+    return false;
+  }
+  establecerError(mensaje, errorMensaje, "");
+  return true;
+}
+
+
+function validarFormulario() {
+  const nombreValido = validarNombre();
+  const correoValido = validarCorreo();
+  const mensajeValido = validarMensaje();
+  return nombreValido && correoValido && mensajeValido;
+}
+
+
+
 
 [nombre, correo, mensaje].forEach((campo) => {
   campo.addEventListener("input", () => {
@@ -56,4 +89,19 @@ function validarMensaje() {
     if (campo === correo) validarCorreo();
     if (campo === mensaje) validarMensaje();
   });
+});
+
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+  mensajeFormulario.className = "mensaje-formulario";
+
+  if (!validarFormulario()) {
+    mensajeFormulario.textContent = "Revisa los campos marcados antes de enviar.";
+    mensajeFormulario.classList.add("mensaje-formulario--visible", "mensaje-formulario--error");
+    return;
+  }
+
+  mensajeFormulario.textContent = "Formulario enviado correctamente.";
+  mensajeFormulario.classList.add("mensaje-formulario--visible", "mensaje-formulario--exito");
+  formulario.reset();
 });
