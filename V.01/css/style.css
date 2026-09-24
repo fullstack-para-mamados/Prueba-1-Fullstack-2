@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --verde-bosque: #1f3a2e;
+  --verde-profundo: #142720;
+  --ocre: #c98a3b;
+  --ocre-claro: #e3ad64;
+  --crema: #f2ede1;
+  --tinta: #22201b;
+  --linea: rgba(34, 32, 27, 0.15);
+  --error: #b3402a;
+  --exito: #2f6b4f;
+
+  --fuente-titulo: 'Fraunces', Georgia, serif;
+  --fuente-texto: 'Work Sans', system-ui, sans-serif;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  color: var(--tinta);
+  background: var(--crema);
+  line-height: 1.55;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  margin: 0 0 0.5em 0;
+  font-weight: 1200;
+  line-height: 1.15;
+}
+
+p { max-width: 62ch; }
+
+.contenedor {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+
+.encabezado {
+  background: var(--verde-profundo);
+  color: var(--crema);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.barra-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+}
+
+
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+
+.boton-menu {
+  display: none;
+  background: none;
+  border: 1px solid var(--crema);
+  color: var(--crema);
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--verde-bosque);
+  color: var(--crema);
+  padding: 4.5rem 0 3.5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+
+
+
+
+
+.juegos_gotys {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--ocre-claro);
+  border: 1px solid rgba(227, 173, 100, 0.5);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Secciones generales ---------- */
+.seccion {
+  padding: 4rem 0;
+}
+
+.seccion--marcada {
+  background: #fffaeb;
+}
+
+
+
+.intro-seccion h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+
+/* ---------- Productos ---------- */
+.grilla-productos {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  gap: 0;
+  border-top: 1px solid var(--linea);
+  border-left: 1px solid var(--linea);
+}
+
+.producto {
+  border-right: 1px solid var(--linea);
+  border-bottom: 1px solid var(--linea);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.producto img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.producto h3 { font-size: 1.15rem; }
+
+.producto .precio {
+  font-family: var(--fuente-titulo);
+  color: var(--verde-bosque);
+  font-size: 1.05rem;
+  margin-top: auto;
+}
+
+.boton {
+  align-self: flex-start;
+  background: var(--verde-bosque);
+  color: var(--crema);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--fuente-texto);
+  font-size: 0.92rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton:hover { background: var(--verde-profundo); }
+
+.boton--ocre {
+  background: var(--ocre);
+  color: var(--verde-profundo);
+}
+
+.boton--ocre:hover { background: var(--ocre-claro); }
+
+/* ---------- Video ---------- */
+.envoltorio-video {
+  position: relative;
+  padding-top: 57.25%;
+  border-radius: 6px;
+  border: 1px solid var(--linea);
+}
+
+.envoltorio-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Formularios ---------- */
+.panel-formulario {
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 2.2rem;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.campo {
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.campo input {
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #c9c2ae;
+  border-radius: 4px;
+  background: var(--crema);
+}
+
+.campo input:focus {
+  outline: 2px solid var(--verde-bosque);
+  outline-offset: 1px;
+}
+
+.campo input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.mensaje-error {
+  font-size: 0.82rem;
+  color: var(--error);
+  min-height: 1.1em;
+}
+
+.ayuda {
+  font-size: 0.8rem;
+  color: #5c5646;
+}
+
+.mensaje-formulario {
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: none;
+}
+
+.mensaje-formulario--visible { display: block; }
+
+.mensaje-formulario--exito {
+  background: rgba(47, 107, 79, 0.12);
+  color: var(--exito);
+  border: 1px solid rgba(47, 107, 79, 0.3);
+}
+
+.medidor-clave {
+  height: 4px;
+  border-radius: 2px;
+  background: #dcd5c1;
+  overflow: hidden;
+}
+
+.medidor-clave span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--error);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+/* ---------- Pie de página ---------- */
+.pie {
+  background: var(--verde-profundo);
+  color: rgba(242, 237, 225, 0.85);
+  padding: 3rem 0 2rem;
+  margin-top: 2rem;
+}
+
+.pie-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(242, 237, 225, 0.15);
+}
+
+.pie h3 {
+  color: var(--crema);
+  font-size: 1rem;
+  font-family: var(--fuente-texto);
+  font-weight: 600;
+}
+
+.pie ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pie a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.92rem;
+}
+
+.pie a:hover { color: var(--ocre-claro); }
+
+.pie-final {
+  padding-top: 1.3rem;
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
