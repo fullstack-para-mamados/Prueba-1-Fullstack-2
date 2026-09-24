@@ -18,7 +18,7 @@ function establecerError(input, elementoError, texto) {
 
 function validarCorreo() {
   const valor = correo.value.trim().toLowerCase();
-  const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
+  const dominiosPermitidos = ["@hotmail.com", "@gmail.com"];
 
   if (valor === "") {
     establecerError(correo, errorCorreo, "El correo es obligatorio.");
@@ -34,7 +34,7 @@ function validarCorreo() {
   }
 
   if (!dominioPermitido) {
-    establecerError(correo, errorCorreo, "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.");
+    establecerError(correo, errorCorreo, "Solo se permiten correos @hotmail.com o @gmail.com.");
     return false;
   }
 
