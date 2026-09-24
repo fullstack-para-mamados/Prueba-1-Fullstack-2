@@ -88,36 +88,14 @@ p { max-width: 62ch; }
   font-size: 1rem;
 }
 
-/* ---------- Hero ---------- */
+
 .hero {
   background: var(--verde-bosque);
   color: var(--crema);
   padding: 4.5rem 0 3.5rem;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: center;
-}
 
-
-
-
-
-
-.juegos_gotys {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--ocre-claro);
-  border: 1px solid rgba(227, 173, 100, 0.5);
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  margin-bottom: 1.2rem;
-}
-
-/* ---------- Secciones generales ---------- */
 .seccion {
   padding: 4rem 0;
 }
@@ -126,14 +104,16 @@ p { max-width: 62ch; }
   background: #fffaeb;
 }
 
+.intro-seccion {
+  max-width: 58ch;
+  margin-bottom: 2.5rem;
+}
 
 
-.intro-seccion h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 
-/* ---------- Productos ---------- */
+
 .grilla-productos {
-  display: grid;
-  grid-template-columns: repeat(5, 2fr);
+  display: flex;
   gap: 0;
   border-top: 1px solid var(--linea);
   border-left: 1px solid var(--linea);
@@ -151,7 +131,7 @@ p { max-width: 62ch; }
 .producto img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 .producto h3 { font-size: 1.15rem; }
@@ -232,14 +212,8 @@ p { max-width: 62ch; }
   background: var(--crema);
 }
 
-.campo input:focus {
-  outline: 2px solid var(--verde-bosque);
-  outline-offset: 1px;
-}
 
-.campo input[aria-invalid="true"] {
-  border-color: var(--error);
-}
+
 
 .mensaje-error {
   font-size: 0.82rem;
@@ -247,43 +221,9 @@ p { max-width: 62ch; }
   min-height: 1.1em;
 }
 
-.ayuda {
-  font-size: 0.8rem;
-  color: #5c5646;
-}
 
-.mensaje-formulario {
-  padding: 0.8rem 1rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  margin-bottom: 1.2rem;
-  display: none;
-}
 
-.mensaje-formulario--visible { display: block; }
 
-.mensaje-formulario--exito {
-  background: rgba(47, 107, 79, 0.12);
-  color: var(--exito);
-  border: 1px solid rgba(47, 107, 79, 0.3);
-}
-
-.medidor-clave {
-  height: 4px;
-  border-radius: 2px;
-  background: #dcd5c1;
-  overflow: hidden;
-}
-
-.medidor-clave span {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: var(--error);
-  transition: width 0.25s ease, background 0.25s ease;
-}
-
-/* ---------- Pie de página ---------- */
 .pie {
   background: var(--verde-profundo);
   color: rgba(242, 237, 225, 0.85);
@@ -299,29 +239,7 @@ p { max-width: 62ch; }
   border-bottom: 1px solid rgba(242, 237, 225, 0.15);
 }
 
-.pie h3 {
-  color: var(--crema);
-  font-size: 1rem;
-  font-family: var(--fuente-texto);
-  font-weight: 600;
-}
 
-.pie ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.pie a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 0.92rem;
-}
-
-.pie a:hover { color: var(--ocre-claro); }
 
 .pie-final {
   padding-top: 1.3rem;

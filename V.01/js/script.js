@@ -4,4 +4,3 @@ function actualizarCarritoInicio() {
     contador.textContent = Number(localStorage.getItem("gotyshop-carrito")) || 0;
   }
 }
-document.addEventListener("DOMContentLoaded", actualizarCarritoInicio);

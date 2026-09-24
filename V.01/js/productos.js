@@ -57,4 +57,3 @@ function cargarProductos() {
   actualizarContador();
 }
 
-document.addEventListener("DOMContentLoaded", cargarProductos);
